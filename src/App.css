@@ -1,0 +1,12 @@
+#root {
+  font-family: 'Open Sans', sans-serif;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #251e62;
+}
+
+.search {
+  display: flex;
+  flex-direction: column;
+}
