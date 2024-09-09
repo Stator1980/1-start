@@ -1,0 +1,27 @@
+.search-form {
+  width: 310px;
+  height: 64px;
+  padding: 0px 16px 0px 60px;
+  border-radius: 12px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: left;
+  background: #0000001a;
+  border: 1px solid #323b54;
+  color: #707074;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  border: none;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+}
+
+.not-icon {
+  display: none;
+}
