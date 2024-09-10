@@ -1,13 +1,17 @@
 import styles from './NavTopLink.module.css';
+import cn from 'classnames';
+
+import classNames from 'classnames';
+import { act } from 'react';
 
 function NavTopLink({ children, count, icon, active }) {
   return (
     <div className={styles['nav-top']}>
       <a
         href="/"
-        className={
-          active ? styles['nav-top-link-active'] : styles['nav-top-link']
-        }
+        className={cn(styles['nav-top-link'], {
+          [styles['active']]: active,
+        })}
       >
         {children}
       </a>
