@@ -6,56 +6,34 @@ import Input from './components/Input/Input';
 import ListCartFilm from './components/ListCartFilm/ListCartFilm';
 import NavBar from './components/NavBar/NavBar';
 import Paragraf from './components/Paragraf/Paragraf';
+import { data_local } from '../data.js';
+import { useEffect, useState } from 'react';
+import { useLocalStorage } from './hooks/use-localstorage.hook.js';
+import FormLogin from './components/FormLogin/FormLogin.jsx';
 
 function App() {
-  const data = [
-    {
-      nameFilm: 'Black Widow',
-      rating: 324,
-    },
-    {
-      nameFilm: 'Shang Chi',
-      rating: 124,
-    },
-    {
-      nameFilm: 'Loki',
-      rating: 235,
-    },
-    {
-      nameFilm: 'How I Met Your Mother',
-      rating: 123,
-    },
-    {
-      nameFilm: 'Money Heist',
-      rating: 8125,
-    },
-    {
-      nameFilm: 'Friends',
-      rating: 123,
-    },
-    {
-      nameFilm: 'The Big Bang Theory',
-      rating: 554,
-    },
-    {
-      nameFilm: 'Two And a Half Men',
-      rating: 456,
-    },
-  ];
+  const data = data_local;
 
-  const onClick = () => {
+  const [profile, setProfile] = useLocalStorage('profile');
+
+  const addProfile = profile => {
+    setProfile(profile);
+  };
+
+  const logOut = () => {
     console.log('Клик');
+    profile.isLogined = false;
+    setProfile(profile);
   };
 
   return (
     <>
-      <div className="elipse5"></div>
-      <div className="vector3"></div>
-      <div className="elipse6"></div>
-      <div className="vector4"></div>
       <div className="navbar-top">
-        <NavBar />
+        <NavBar profile={profile} logOut={logOut}></NavBar>
       </div>
+
+      <FormLogin onSubmit={addProfile} data={profile}></FormLogin>
+
       <div className="search">
         <Header>Поиск</Header>
         <Paragraf>
@@ -66,9 +44,9 @@ function App() {
           <Input
             placeholder="Введите название"
             className="search-form"
-            isIcon="false"
+            isIcon="yes!"
           />
-          <Button onClick={onClick}>Искать</Button>
+          <Button appearence="small">Искать</Button>
         </div>
       </div>
 

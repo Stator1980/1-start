@@ -3,7 +3,7 @@ import styles from './Input.module.css';
 import cn from 'classnames';
 
 const Input = forwardRef(function Input(
-  { className, isValid = true, isIcon = false, appearence, ...props },
+  { className, isIcon = false, isValid = true, appearence, ...props },
   ref
 ) {
   return (
@@ -11,7 +11,8 @@ const Input = forwardRef(function Input(
       <input
         {...props}
         ref={ref}
-        className={cn(className, styles['search-form'], {
+        className={cn(className, styles['search-form'], styles['is-icon'], {
+          [styles['is-not-icon']]: !isIcon,
           [styles['invalid']]: !isValid,
         })}
       />

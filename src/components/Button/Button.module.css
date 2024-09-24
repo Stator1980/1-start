@@ -6,11 +6,18 @@
   line-height: 24px;
   text-align: center;
   color: white;
-  width: 119px;
   height: 56px;
   border-radius: 12px;
   background: #7b6ef6;
   border: none;
+}
+
+.small {
+  width: 119px;
+}
+
+.middle {
+  width: 200px;
 }
 
 .button:hover {
