@@ -7,32 +7,19 @@ import ListCartFilm from './components/ListCartFilm/ListCartFilm';
 import NavBar from './components/NavBar/NavBar';
 import Paragraf from './components/Paragraf/Paragraf';
 import { data_local } from '../data.js';
-import { useEffect, useState } from 'react';
-import { useLocalStorage } from './hooks/use-localstorage.hook.js';
 import FormLogin from './components/FormLogin/FormLogin.jsx';
+import { UserContexProvider } from './contex/user.contex.jsx';
 
 function App() {
   const data = data_local;
 
-  const [profile, setProfile] = useLocalStorage('profile');
-
-  const addProfile = profile => {
-    setProfile(profile);
-  };
-
-  const logOut = () => {
-    console.log('Клик');
-    profile.isLogined = false;
-    setProfile(profile);
-  };
-
   return (
-    <>
+    <UserContexProvider>
       <div className="navbar-top">
-        <NavBar profile={profile} logOut={logOut}></NavBar>
+        <NavBar />
       </div>
 
-      <FormLogin onSubmit={addProfile} data={profile}></FormLogin>
+      <FormLogin />
 
       <div className="search">
         <Header>Поиск</Header>
@@ -51,16 +38,15 @@ function App() {
       </div>
 
       <ListCartFilm>
-        <CartFilm image="card1.png" nameFilm={data[0].nameFilm}></CartFilm>
-        <CartFilm image="card2.png" nameFilm={data[1].nameFilm}></CartFilm>
-        <CartFilm image="card3.png" nameFilm={data[2].nameFilm}></CartFilm>
-        <CartFilm image="card4.png" nameFilm={data[3].nameFilm}></CartFilm>
-        <CartFilm image="card5.png" nameFilm={data[4].nameFilm}></CartFilm>
-        <CartFilm image="card6.png" nameFilm={data[5].nameFilm}></CartFilm>
-        <CartFilm image="card7.png" nameFilm={data[6].nameFilm}></CartFilm>
-        <CartFilm image="card8.png" nameFilm={data[7].nameFilm}></CartFilm>
+        {data.map(p => (
+          <CartFilm
+            key={p.id}
+            image={p.poster}
+            nameFilm={p.nameFilm}
+          ></CartFilm>
+        ))}
       </ListCartFilm>
-    </>
+    </UserContexProvider>
   );
 }
 

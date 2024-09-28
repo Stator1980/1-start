@@ -1,11 +1,13 @@
-import { useEffect, useReducer, useRef } from 'react';
+import { useContext, useEffect, useReducer, useRef } from 'react';
 import styles from './FormLogin.module.css';
 import Button from '../Button/Button';
 import Header from '../Header/Header';
 import Input from '../Input/Input';
 import { formReducer, INITIAL_STATE } from './FormLogin.state';
+import { UserContex } from '../../contex/user.contex';
 
-function FormLogin({ onSubmit, data }) {
+function FormLogin() {
+  let { profileContex, setProfileContex } = useContext(UserContex);
   const [formState, dispatchForm] = useReducer(formReducer, INITIAL_STATE);
   const { isValid, isFormReadyToSubmit, values } = formState;
   const login_nameRef = useRef();
@@ -16,6 +18,10 @@ function FormLogin({ onSubmit, data }) {
         login_nameRef.current.focus();
         break;
     }
+  };
+
+  const onSubmit = profileContex => {
+    setProfileContex(profileContex);
   };
 
   useEffect(() => {
@@ -34,6 +40,8 @@ function FormLogin({ onSubmit, data }) {
 
   useEffect(() => {
     if (isFormReadyToSubmit) {
+      profileContex = values;
+      setProfileContex(profileContex);
       values.isLogined = true;
       onSubmit(values);
       dispatchForm({ type: 'CLEAR' });
