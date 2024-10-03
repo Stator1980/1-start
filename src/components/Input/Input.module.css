@@ -1,7 +1,7 @@
 .search-form {
   width: 310px;
   height: 64px;
-  padding: 0px 16px 0px 60px;
+  /*  padding: 0px 16px 0px 60px; */
   border-radius: 12px;
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
@@ -11,6 +11,19 @@
   background: #0000001a;
   border: 1px solid #323b54;
   color: #707074;
+}
+
+.invalid {
+  border: 1px solid red;
+  background: rgb(245, 76, 76);
+}
+
+.is-icon {
+  padding: 0px 16px 0px 60px;
+}
+
+.is-not-icon {
+  padding: 0px 16px 0px 16px;
 }
 
 .icon {

@@ -1,0 +1,6 @@
+.log-in {
+  display: flex;
+  flex-direction: column;
+  margin-left: 120px;
+  gap: 27px;
+}

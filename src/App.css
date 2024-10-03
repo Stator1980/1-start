@@ -2,7 +2,16 @@
   font-family: 'Open Sans', sans-serif;
   max-width: 1440px;
   margin: 0 auto;
-  background: #121829;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background: url(/background.svg) no-repeat;
+  background-color: #101a2b;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .search {
@@ -17,55 +26,4 @@
   flex-direction: row;
   gap: 10px;
   align-items: baseline;
-}
-
-.elipse5 {
-  /* Ellipse 5 */
-  position: absolute;
-  width: 400px;
-  height: 265px;
-  left: 1010px;
-  top: 160px;
-  /* Primary/800 */
-  background: #251e62;
-  filter: blur(175px);
-  transform: rotate(-135deg);
-}
-
-.vector3 {
-  /* Vector 3 */
-  position: absolute;
-  width: 488px;
-  height: 345px;
-  left: 150px;
-  top: 280px;
-  /* background-image: url(vector3.svg); */
-  /* Secondary/800 */
-  background: #0c4265;
-  filter: blur(175px);
-}
-
-.elipse6 {
-  /* Ellipse 6 */
-  position: absolute;
-  width: 400px;
-  height: 265px;
-  left: 720px;
-  top: 970px;
-  /* Tertary/800 */
-  background: #492c66;
-  filter: blur(175px);
-  transform: rotate(-135deg);
-}
-
-.vector4 {
-  /* Vector 4 */
-  position: absolute;
-  width: 488px;
-  height: 345px;
-  left: 1050px;
-  top: 1040px;
-  /* Success/800 */
-  background: #02523a;
-  filter: blur(175px);
 }

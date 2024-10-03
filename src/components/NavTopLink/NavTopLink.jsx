@@ -4,7 +4,7 @@ import cn from 'classnames';
 import classNames from 'classnames';
 import { act } from 'react';
 
-function NavTopLink({ children, count, icon, active }) {
+function NavTopLink({ children, count, icon, active, onClick }) {
   return (
     <div className={styles['nav-top']}>
       <a
@@ -12,6 +12,7 @@ function NavTopLink({ children, count, icon, active }) {
         className={cn(styles['nav-top-link'], {
           [styles['active']]: active,
         })}
+        onClick={onClick}
       >
         {children}
       </a>
